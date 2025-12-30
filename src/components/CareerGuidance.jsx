@@ -29,7 +29,7 @@ const guidanceFeatures = [
 
 const CareerGuidance = () => {
     return (
-        <section className="py-20 px-6 md:px-12 lg:px-24 bg-[#F0F9FF] relative">
+        <section id="blog" className="py-20 px-6 md:px-12 lg:px-24 bg-[#F0F9FF] relative">
             <h2 className="text-3xl md:text-4xl font-bold text-gp-dark text-center mb-16">CAREER FOCUSED GUIDANCE</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

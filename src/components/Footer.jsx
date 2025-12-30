@@ -5,7 +5,7 @@ import logoWhite from '../assets/logo-white.png';
 
 const Footer = () => {
     return (
-        <footer className="bg-gp-dark text-white pt-20 pb-10 px-6 md:px-12 lg:px-24 relative overflow-hidden">
+        <footer id="contact" className="bg-gp-dark text-white pt-20 pb-10 px-6 md:px-12 lg:px-24 relative overflow-hidden">
             {/* CTA Section */}
             <div className="text-center mb-20 relative z-10">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to transform your career?</h2>

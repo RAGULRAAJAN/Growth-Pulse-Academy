@@ -27,7 +27,7 @@ const features = [
 
 const WhyChooseUs = () => {
     return (
-        <section className="py-20 px-6 md:px-12 lg:px-24 bg-[#F0F9FF]">
+        <section id="about" className="py-20 px-6 md:px-12 lg:px-24 bg-[#F0F9FF]">
             <div className="flex justify-between items-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold text-gp-dark">WHY CHOOSE GROWTHPULSE ACADEMY?</h2>
                 <div className="flex gap-2">

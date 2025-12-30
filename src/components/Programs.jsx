@@ -34,7 +34,7 @@ const programs = [
 
 const Programs = () => {
     return (
-        <section className="py-20 px-6 md:px-12 lg:px-24 bg-[#F0F9FF]">
+        <section id="courses" className="py-20 px-6 md:px-12 lg:px-24 bg-[#F0F9FF]">
             <div className="mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold text-gp-dark mb-4">OUR MOST IN DEMAND PROGRAMS</h2>
                 <p className="text-gp-muted">Explore The Training Programs Designed To Accelerate Your Professional Growth.</p>
