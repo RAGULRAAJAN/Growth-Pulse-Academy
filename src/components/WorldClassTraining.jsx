@@ -12,7 +12,7 @@ const WorldClassTraining = () => {
                     <img
                         src={illustration}
                         alt="World Class Training"
-                        className="w-full max-w-lg object-contain"
+                        className="w-full h-auto max-w-[300px] md:max-w-[400px] lg:max-w-lg object-contain mx-auto"
                     />
                 </div>
 
