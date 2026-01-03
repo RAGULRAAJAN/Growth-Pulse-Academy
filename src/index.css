@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
+=======
+>>>>>>> 98e299068aa2213734fcad6341709d79da5987cc
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
+=======
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+>>>>>>> 98e299068aa2213734fcad6341709d79da5987cc
 body {
   @apply bg-gp-dark text-gp-text font-sans antialiased;
 }
@@ -18,4 +26,8 @@ body {
 
 .section-padding {
   @apply py-16 px-4 md:px-12 lg:px-24;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 98e299068aa2213734fcad6341709d79da5987cc
