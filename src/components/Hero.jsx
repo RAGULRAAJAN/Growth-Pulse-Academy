@@ -19,17 +19,17 @@ const Hero = () => {
                         Transforming Students into Professionals
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
                         GET <span className="italic font-serif font-normal">JOB READY:</span><br />
                         HANDS ON TRAINING <br />
                         & REAL WORLD PROJECTS
                     </h1>
 
-                    <p className="text-gp-muted text-lg mb-8 max-w-lg">
+                    <p className="text-gp-muted text-base mb-6 max-w-lg">
                         Discover the pathway to in demand careers with immersive learning, industry projects, and a real time approach.
                     </p>
 
-                    <button className="px-8 py-3 rounded-md bg-gradient-to-r from-gp-purple to-gp-blue text-white font-semibold hover:opacity-90 transition-opacity">
+                    <button className="px-6 py-2 rounded-md bg-gradient-to-r from-gp-purple to-gp-blue text-white font-semibold hover:opacity-90 transition-opacity">
                         Explore Programs
                     </button>
                 </div>
@@ -45,7 +45,7 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1, duration: 0.8 }}
-                            className="absolute -top-10 right-0 md:top-0 md:right-10 lg:-top-16 lg:right-0 xl:-top-32 xl:right-[10%] bg-white text-gp-dark p-4 rounded-xl rounded-bl-none shadow-lg text-xs font-bold max-w-[200px] leading-relaxed z-30"
+                            className="absolute top-0 right-0 md:top-10 md:right-10 lg:-top-8 lg:right-0 xl:-top-20 xl:right-[10%] bg-white text-gp-dark p-3 rounded-xl rounded-bl-none shadow-lg text-[10px] font-bold max-w-[150px] leading-relaxed z-30"
                         >
                             HEY! WELCOME TO GP ACADEMY. LET'S GET YOU FUTURE-READY!
                         </motion.div>
@@ -53,7 +53,7 @@ const Hero = () => {
                 </div>
             </div>
             {/* Bottom Curve Overlay */}
-            <div className="absolute -bottom-1 left-0 w-full z-20 leading-none">
+            <div className="absolute -bottom-1 left-0 w-full z-50 leading-none">
                 <svg
                     className="relative block w-full h-[100px] md:h-[150px]"
                     data-name="Layer 1"
