@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
   @apply bg-gp-dark text-gp-text font-sans antialiased;
 }

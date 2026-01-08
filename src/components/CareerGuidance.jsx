@@ -1,32 +1,28 @@
 import React from 'react';
-import careerSupportIcon from '../assets/career-support.png';
-import resumeBuildingIcon from '../assets/resume-building.png';
-import personalizedGuidanceIcon from '../assets/personalized-guidance.png';
-import certificationIcon from '../assets/certification.png';
 
 const guidanceFeatures = [
     {
         title: 'Real Career Support',
         description: 'Interview preparation to help you succeed in your job search.',
-        icon: careerSupportIcon,
+        icon: '🎯',
         color: 'text-red-500'
     },
     {
         title: 'Professional Resume Building',
         description: 'Workshops to create compelling resumes that stand out.',
-        icon: resumeBuildingIcon,
+        icon: '📄',
         color: 'text-blue-500'
     },
     {
         title: 'Personalized Guidance',
         description: 'One-on-one support to succeed in interviews and career decisions.',
-        icon: personalizedGuidanceIcon,
+        icon: '🤝',
         color: 'text-orange-500'
     },
     {
         title: 'Recognized Certification',
         description: 'Acquire industry recognized certifications for a competitive edge.',
-        icon: certificationIcon,
+        icon: '📜',
         color: 'text-yellow-500'
     }
 ];
@@ -39,8 +35,8 @@ const CareerGuidance = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {guidanceFeatures.map((feature, index) => (
                     <div key={index} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow text-center group">
-                        <div className={`mb-6 transform group-hover:scale-110 transition-transform duration-300`}>
-                            <img src={feature.icon} alt={feature.title} className="w-16 h-16 mx-auto" />
+                        <div className={`text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300 ${feature.color}`}>
+                            {feature.icon}
                         </div>
                         <h3 className="text-lg font-bold text-gp-dark mb-3">{feature.title}</h3>
                         <p className="text-sm text-gray-500 leading-relaxed">
