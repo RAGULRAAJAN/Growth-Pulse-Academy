@@ -12,6 +12,8 @@ import Footer from './components/Footer';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
+import Contact from './pages/Contact';
+
 function HomePage() {
   return (
     <div className="min-h-screen bg-[#F0F9FF] font-sans">
@@ -35,6 +37,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaInstagram, FaLinkedin, FaFacebook, FaYoutube } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import logoWhite from '../assets/logo-white.png';
@@ -12,9 +12,9 @@ const Footer = () => {
                 <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
                     Join hundreds of successful graduates who have launched their tech careers with Growthpulse Academy.
                 </p>
-                <button className="btn-primary px-8 py-3 rounded-md">
+                <Link to="/contact" className="btn-primary px-8 py-3 rounded-md inline-block">
                     Apply Now
-                </button>
+                </Link>
             </div>
 
             <div className="border-t border-white/10 pt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">

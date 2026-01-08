@@ -23,6 +23,9 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Login attempt:', { username, password });
+        // Mock Login Logic
+        localStorage.setItem('authToken', 'demo_token');
+        navigate('/');
     };
 
     return (

@@ -27,7 +27,7 @@ const Navbar = () => {
                     </svg>
                 </a>
                 <a href="#blog" className="hover:text-white transition-colors">Blog</a>
-                <a href="#contact" className="hover:text-white transition-colors">Contact</a> {/* ✅ ADDED */}
+                <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
             </div>
 
             {/* Desktop CTA - KEEP this as SINGLE Login/Register */}
@@ -56,7 +56,7 @@ const Navbar = () => {
                     <a href="#about" className="text-gray-300 hover:text-white text-lg font-medium" onClick={toggleMenu}>About</a>
                     <a href="#courses" className="text-gray-300 hover:text-white text-lg font-medium" onClick={toggleMenu}>Courses</a>
                     <a href="#blog" className="text-gray-300 hover:text-white text-lg font-medium" onClick={toggleMenu}>Blog</a>
-                    <a href="#contact" className="text-gray-300 hover:text-white text-lg font-medium" onClick={toggleMenu}>Contact</a>
+                    <Link to="/contact" className="text-gray-300 hover:text-white text-lg font-medium" onClick={toggleMenu}>Contact</Link>
                     <Link to="/login" className="text-gray-300 hover:text-white text-lg font-medium" onClick={toggleMenu}>Login</Link>
                     <Link to="/register" className="px-6 py-3 rounded-md bg-gradient-to-r from-gp-purple to-gp-blue text-white text-center font-semibold" onClick={toggleMenu}>Register</Link>
                 </div>
