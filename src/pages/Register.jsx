@@ -9,6 +9,8 @@ const Register = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [windowScale, setWindowScale] = useState(1);
+    const [message, setMessage] = useState({ type: '', text: '' });
+    const [isLoading, setIsLoading] = useState(false);
 
     // Scaling logic for responsiveness (kept same as login for consistency)
     useEffect(() => {
@@ -21,9 +23,34 @@ const Register = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const handleRegister = (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
-        console.log('Register attempt:', { email, username, password });
+        setIsLoading(true);
+        setMessage({ type: '', text: '' });
+
+        try {
+            const response = await fetch('http://localhost:5000/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, username, password }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setMessage({ type: 'success', text: 'Registration successful! Redirecting to login...' });
+                setTimeout(() => navigate('/login'), 2000);
+            } else {
+                setMessage({ type: 'error', text: data.message || 'Registration failed' });
+            }
+        } catch (error) {
+            console.error('Register error:', error);
+            setMessage({ type: 'error', text: 'Something went wrong. Please try again later.' });
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -143,6 +170,29 @@ const Register = () => {
                         zIndex: 1,
                     }}
                 />
+
+                {/* FEEDBACK MESSAGES */}
+                {message.text && (
+                    <div
+                        className="absolute flex items-center justify-center text-center px-4 transition-all duration-300"
+                        style={{
+                            width: '435px',
+                            height: '50px',
+                            top: '400px',
+                            left: '1039px',
+                            zIndex: 150,
+                            borderRadius: '12px',
+                            backgroundColor: message.type === 'success' ? '#D1FAE5' : '#FEE2E2',
+                            border: `1px solid ${message.type === 'success' ? '#10B981' : '#EF4444'}`,
+                            color: message.type === 'success' ? '#065F46' : '#991B1B',
+                            fontFamily: 'Poppins, sans-serif',
+                            fontSize: '14px',
+                            fontWeight: '500'
+                        }}
+                    >
+                        {message.text}
+                    </div>
+                )}
 
                 {/* --- INTERACTIVE FORM FIELDS (Highest Z-Index) --- */}
 
@@ -282,7 +332,8 @@ const Register = () => {
                     {/* REGISTER BUTTON */}
                     <button
                         type="submit"
-                        className="absolute text-white font-poppins font-normal text-base shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer border-none"
+                        disabled={isLoading}
+                        className={`absolute text-white font-poppins font-normal text-base shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer border-none ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
                         style={{
                             width: '232px',
                             height: '49px',
@@ -293,7 +344,7 @@ const Register = () => {
                             zIndex: 110,
                         }}
                     >
-                        Register
+                        {isLoading ? 'Registering...' : 'Register'}
                     </button>
 
                 </form>

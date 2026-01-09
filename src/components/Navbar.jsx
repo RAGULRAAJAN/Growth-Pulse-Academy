@@ -4,9 +4,24 @@ import logoWhite from '../assets/logo-white.png';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const [user, setUser] = React.useState(null);
+
+    React.useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        }
+    }, []);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setUser(null);
+        window.location.href = '/';
     };
 
     return (
@@ -32,8 +47,25 @@ const Navbar = () => {
 
             {/* Desktop CTA - KEEP this as SINGLE Login/Register */}
             <div className="hidden md:flex items-center gap-4">
-                <Link to="/login" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Login</Link>
-                <Link to="/register" className="px-6 py-2 rounded-md bg-gradient-to-r from-gp-purple to-gp-blue text-white hover:opacity-90 transition-opacity text-sm font-semibold">Register</Link>
+                {user ? (
+                    <div className="flex items-center gap-4">
+                        <div className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-green-400"></span>
+                            USER ID: {user.id}
+                        </div>
+                        <button
+                            onClick={handleLogout}
+                            className="px-6 py-2 rounded-md bg-gradient-to-r from-gp-purple to-gp-blue text-white hover:opacity-90 transition-opacity text-sm font-semibold cursor-pointer border-none"
+                        >
+                            Log out
+                        </button>
+                    </div>
+                ) : (
+                    <>
+                        <Link to="/login" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Login</Link>
+                        <Link to="/register" className="px-6 py-2 rounded-md bg-gradient-to-r from-gp-purple to-gp-blue text-white hover:opacity-90 transition-opacity text-sm font-semibold">Register</Link>
+                    </>
+                )}
             </div>
 
             {/* Mobile Menu Button */}
@@ -57,8 +89,24 @@ const Navbar = () => {
                     <a href="#courses" className="text-gray-300 hover:text-white text-lg font-medium" onClick={toggleMenu}>Courses</a>
                     <a href="#blog" className="text-gray-300 hover:text-white text-lg font-medium" onClick={toggleMenu}>Blog</a>
                     <Link to="/contact" className="text-gray-300 hover:text-white text-lg font-medium" onClick={toggleMenu}>Contact</Link>
-                    <Link to="/login" className="text-gray-300 hover:text-white text-lg font-medium" onClick={toggleMenu}>Login</Link>
-                    <Link to="/register" className="px-6 py-3 rounded-md bg-gradient-to-r from-gp-purple to-gp-blue text-white text-center font-semibold" onClick={toggleMenu}>Register</Link>
+                    {user ? (
+                        <>
+                            <div className="text-white text-lg font-medium border-l-4 border-gp-purple pl-4">
+                                USER ID: {user.id}
+                            </div>
+                            <button
+                                onClick={() => { handleLogout(); toggleMenu(); }}
+                                className="px-6 py-3 rounded-md bg-gradient-to-r from-gp-purple to-gp-blue text-white text-center font-semibold border-none"
+                            >
+                                Log out
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/login" className="text-gray-300 hover:text-white text-lg font-medium" onClick={toggleMenu}>Login</Link>
+                            <Link to="/register" className="px-6 py-3 rounded-md bg-gradient-to-r from-gp-purple to-gp-blue text-white text-center font-semibold" onClick={toggleMenu}>Register</Link>
+                        </>
+                    )}
                 </div>
             )}
         </nav>

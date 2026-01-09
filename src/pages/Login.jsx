@@ -8,6 +8,8 @@ const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [windowScale, setWindowScale] = useState(1);
+    const [message, setMessage] = useState({ type: '', text: '' });
+    const [isLoading, setIsLoading] = useState(false);
 
     // Scaling logic for responsiveness
     useEffect(() => {
@@ -20,12 +22,38 @@ const Login = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Login attempt:', { username, password });
-        // Mock Login Logic
-        localStorage.setItem('authToken', 'demo_token');
-        navigate('/');
+        setIsLoading(true);
+        setMessage({ type: '', text: '' });
+
+        try {
+            const response = await fetch('http://localhost:5000/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                // Save token and user info
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('user', JSON.stringify(data.user));
+
+                setMessage({ type: 'success', text: 'Login successful! Redirecting...' });
+                setTimeout(() => navigate('/'), 1500);
+            } else {
+                setMessage({ type: 'error', text: data.message || 'Login failed' });
+            }
+        } catch (error) {
+            console.error('Login error:', error);
+            setMessage({ type: 'error', text: 'Something went wrong. Please try again later.' });
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -148,6 +176,29 @@ const Login = () => {
                     }}
                 />
 
+                {/* FEEDBACK MESSAGES */}
+                {message.text && (
+                    <div
+                        className="absolute flex items-center justify-center text-center px-4 transition-all duration-300"
+                        style={{
+                            width: '435px',
+                            height: '50px',
+                            top: '430px',
+                            left: '1039px',
+                            zIndex: 150,
+                            borderRadius: '12px',
+                            backgroundColor: message.type === 'success' ? '#D1FAE5' : '#FEE2E2',
+                            border: `1px solid ${message.type === 'success' ? '#10B981' : '#EF4444'}`,
+                            color: message.type === 'success' ? '#065F46' : '#991B1B',
+                            fontFamily: 'Poppins, sans-serif',
+                            fontSize: '14px',
+                            fontWeight: '500'
+                        }}
+                    >
+                        {message.text}
+                    </div>
+                )}
+
                 {/* --- INTERACTIVE FORM FIELDS (Highest Z-Index) --- */}
 
                 <form onSubmit={handleSubmit}>
@@ -266,7 +317,8 @@ const Login = () => {
                     {/* LOGIN BUTTON */}
                     <button
                         type="submit"
-                        className="absolute text-white font-poppins font-normal text-base shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer border-none"
+                        disabled={isLoading}
+                        className={`absolute text-white font-poppins font-normal text-base shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer border-none ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
                         style={{
                             width: '232px',
                             height: '49px',
@@ -277,7 +329,7 @@ const Login = () => {
                             zIndex: 110,
                         }}
                     >
-                        Login
+                        {isLoading ? 'Logging in...' : 'Login'}
                     </button>
                 </form>
 
