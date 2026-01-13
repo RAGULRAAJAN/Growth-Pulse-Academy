@@ -35,12 +35,19 @@ const Navbar = () => {
             <div className="hidden md:flex items-center gap-12 text-sm font-medium text-gray-300">
                 <a href="#home" className="text-white border-b-2 border-gp-blue pb-1 transition-colors">Home</a>
                 <a href="#about" className="hover:text-white transition-colors">About</a>
-                <a href="#courses" className="hover:text-white transition-colors flex items-center gap-1">
-                    Courses
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 h-3">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                </a>
+                <div className="relative group">
+                    <button className="hover:text-white transition-colors flex items-center gap-1 py-4">
+                        Courses
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 h-3 group-hover:rotate-180 transition-transform">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </button>
+                    <div className="absolute top-full left-0 w-64 bg-white rounded-xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
+                        <Link to="/mean-developer-training" className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gp-blue transition-colors text-sm font-medium">
+                            MEAN Developer Training
+                        </Link>
+                    </div>
+                </div>
                 <a href="#blog" className="hover:text-white transition-colors">Blog</a>
                 <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
             </div>

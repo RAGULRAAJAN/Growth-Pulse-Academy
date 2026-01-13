@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import iconFullStack from '../assets/icon-fullstack.png';
 import iconMarketing from '../assets/icon-marketing.png';
 import iconSecurity from '../assets/icon-security.png';
@@ -81,8 +82,17 @@ const Programs = () => {
                             <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[90%] bg-white border border-gray-400 rounded-[2rem] overflow-hidden shadow-2xl z-10 p-1">
                                 {program.subPrograms.map((sub, idx) => (
                                     <div key={idx} className="px-6 py-3 text-base font-bold text-gray-800 hover:bg-gp-purple/5 cursor-pointer transition-all flex items-center justify-between group/item rounded-[1.5rem]">
-                                        <span>{sub}</span>
-                                        <span className="opacity-0 group-hover/item:opacity-100 transition-opacity text-gp-purple font-black">→</span>
+                                        {sub === 'MEAN' ? (
+                                            <Link to="/mean-developer-training" className="flex-grow flex items-center justify-between">
+                                                <span>{sub}</span>
+                                                <span className="opacity-0 group-hover/item:opacity-100 transition-opacity text-gp-purple font-black">→</span>
+                                            </Link>
+                                        ) : (
+                                            <>
+                                                <span>{sub}</span>
+                                                <span className="opacity-0 group-hover/item:opacity-100 transition-opacity text-gp-purple font-black">→</span>
+                                            </>
+                                        )}
                                     </div>
                                 ))}
                             </div>
