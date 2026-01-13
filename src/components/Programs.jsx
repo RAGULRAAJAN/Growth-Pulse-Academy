@@ -10,7 +10,8 @@ const programs = [
         description: 'Master frontend and backend technologies with hands-on projects in .NET, Java, or Python stacks.',
         features: ['Real-world projects', 'AI Integration', 'Industry mentorship'],
         image: iconFullStack,
-        color: 'from-indigo-500 to-purple-600'
+        color: 'from-indigo-500 to-purple-600',
+        subPrograms: ['Full Stack .NET', 'Full Stack Java', 'Full Stack Python']
     },
     {
         title: 'Digital Marketing',
@@ -27,48 +28,65 @@ const programs = [
         color: 'from-blue-500 to-indigo-600'
     },
     {
-        title: 'AI-Integrated Learning',
+        title: 'MERN/MEAN',
         description: 'Integrate artificial intelligence into applications with cutting-edge tools and frameworks.',
         features: ['Machine learning', 'AI libraries', 'Smart applications'],
         image: iconAI,
         color: 'from-violet-500 to-fuchsia-600',
-        highlight: true
+        subPrograms: ['MERN', 'MEAN']
     }
 ];
 
 const Programs = () => {
     return (
-        <section id="courses" className="py-20 px-6 md:px-12 lg:px-24 bg-[#F0F9FF]">
-            <div className="mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gp-dark mb-4">OUR MOST IN DEMAND PROGRAMS</h2>
-                <p className="text-gp-muted">Explore The Training Programs Designed To Accelerate Your Professional Growth.</p>
+        <section id="courses" className="py-24 px-6 md:px-12 lg:px-24 bg-[#F0F9FF]">
+            <div className="mb-16 text-center md:text-left text-gp-dark">
+                <h2 className="text-3xl md:text-5xl font-bold mb-4">OUR MOST IN DEMAND PROGRAMS</h2>
+                <p className="text-gp-muted text-lg max-w-2xl">Explore The Training Programs Designed To Accelerate Your Professional Growth.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
                 {programs.map((program, index) => (
-                    <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow flex flex-col h-full">
-                        {/* Card Header/Image Area */}
-                        <div className={`h-48 bg-gradient-to-br ${program.color} flex items-center justify-center relative p-6`}>
-                            <img src={program.image} alt={program.title} className="w-full h-full object-contain drop-shadow-lg transform hover:scale-110 transition-transform duration-300" />
+                    <div key={index} className="flex flex-col h-full relative group">
+                        {/* Main Card */}
+                        <div className={`bg-white rounded-[2.5rem] overflow-hidden shadow-xl transition-all duration-300 flex flex-col h-full border-2 ${program.highlight ? 'border-[#00AAFF]' : 'border-transparent'}`}>
+                            {/* Card Header/Image Area */}
+                            <div className={`h-56 bg-gradient-to-br ${program.color} flex items-center justify-center relative p-10`}>
+                                <img src={program.image} alt={program.title} className="w-full h-full object-contain drop-shadow-2xl transform group-hover:scale-110 transition-transform duration-500" />
+                            </div>
+
+                            {/* Card Body */}
+                            <div className={`p-8 flex-1 flex flex-col ${program.subPrograms ? 'pb-40' : 'pb-10'}`}>
+                                <h3 className="text-2xl font-bold text-gp-dark mb-4 leading-tight min-h-[3.5rem]">{program.title}</h3>
+                                <p className="text-gray-500 mb-4 flex-grow leading-relaxed text-sm">{program.description}</p>
+
+                                <ul className="space-y-2 mb-6">
+                                    {program.features.map((feature, idx) => (
+                                        <li key={idx} className="text-sm text-gray-700 flex items-center gap-3 font-medium">
+                                            <span className="text-[#00AAFF] text-xl font-bold">✓</span> {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                {!program.subPrograms && (
+                                    <button className="mt-auto w-full py-4 rounded-full bg-gradient-to-r from-[#7148E2] to-[#407CED] text-white font-bold text-sm shadow-md hover:brightness-110 hover:scale-[1.02] transition-all active:scale-95">
+                                        Learn More
+                                    </button>
+                                )}
+                            </div>
                         </div>
 
-                        {/* Card Body */}
-                        <div className="p-6 flex-1 flex flex-col">
-                            <h3 className="text-xl font-bold text-gp-dark mb-3">{program.title}</h3>
-                            <p className="text-sm text-gray-500 mb-4 flex-grow">{program.description}</p>
-
-                            <ul className="space-y-2 mb-6">
-                                {program.features.map((feature, idx) => (
-                                    <li key={idx} className="text-xs text-gray-600 flex items-center gap-2">
-                                        <span className="text-gp-blue">✓</span> {feature}
-                                    </li>
+                        {/* Sub-Programs Box (Outside/Overlay) */}
+                        {program.subPrograms && (
+                            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[90%] bg-white border border-gray-400 rounded-[2rem] overflow-hidden shadow-2xl z-10 p-1">
+                                {program.subPrograms.map((sub, idx) => (
+                                    <div key={idx} className="px-6 py-3 text-base font-bold text-gray-800 hover:bg-gp-purple/5 cursor-pointer transition-all flex items-center justify-between group/item rounded-[1.5rem]">
+                                        <span>{sub}</span>
+                                        <span className="opacity-0 group-hover/item:opacity-100 transition-opacity text-gp-purple font-black">→</span>
+                                    </div>
                                 ))}
-                            </ul>
-
-                            <button className="w-full py-2 rounded-full bg-gp-purple/10 text-gp-purple font-semibold text-sm hover:bg-gp-purple hover:text-white transition-colors">
-                                Learn More
-                            </button>
-                        </div>
+                            </div>
+                        )}
                     </div>
                 ))}
             </div>
