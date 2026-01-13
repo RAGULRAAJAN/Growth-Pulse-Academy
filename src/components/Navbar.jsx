@@ -46,6 +46,9 @@ const Navbar = () => {
                         <Link to="/mean-developer-training" className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gp-blue transition-colors text-sm font-medium">
                             MEAN Developer Training
                         </Link>
+                        <Link to="/mern-developer-training" className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gp-blue transition-colors text-sm font-medium">
+                            MERN Developer Training
+                        </Link>
                     </div>
                 </div>
                 <a href="#blog" className="hover:text-white transition-colors">Blog</a>

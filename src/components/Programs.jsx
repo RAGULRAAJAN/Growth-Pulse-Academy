@@ -87,6 +87,11 @@ const Programs = () => {
                                                 <span>{sub}</span>
                                                 <span className="opacity-0 group-hover/item:opacity-100 transition-opacity text-gp-purple font-black">→</span>
                                             </Link>
+                                        ) : sub === 'MERN' ? (
+                                            <Link to="/mern-developer-training" className="flex-grow flex items-center justify-between">
+                                                <span>{sub}</span>
+                                                <span className="opacity-0 group-hover/item:opacity-100 transition-opacity text-gp-purple font-black">→</span>
+                                            </Link>
                                         ) : (
                                             <>
                                                 <span>{sub}</span>
