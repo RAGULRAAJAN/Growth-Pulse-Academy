@@ -3,7 +3,7 @@ import { FaInstagram, FaLinkedin, FaFacebook, FaYoutube } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import logoWhite from '../assets/logo-white.png';
 
-const Footer = () => {
+const Footer = ({ themeColor = '#4227F5' }) => {
     return (
         <footer id="contact" className="bg-gp-dark text-white pt-20 pb-10 px-6 md:px-12 lg:px-24 relative overflow-hidden">
             {/* CTA Section */}
@@ -12,7 +12,7 @@ const Footer = () => {
                 <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
                     Join hundreds of successful graduates who have launched their tech careers with Growthpulse Academy.
                 </p>
-                <Link to="/contact" className="btn-primary px-8 py-3 rounded-md inline-block">
+                <Link to="/contact" className="bg-gradient-to-r from-gp-purple to-gp-blue text-white px-10 py-3.5 rounded-md inline-block font-semibold text-lg shadow-xl hover:opacity-90 hover:scale-105 transition-all">
                     Apply Now
                 </Link>
             </div>
@@ -21,7 +21,7 @@ const Footer = () => {
                 {/* Brand */}
                 <div>
                     <div className="mb-6">
-                        <img src={logoWhite} alt="GrowthPulse Academy" className="h-12 w-auto" />
+                        <img src={logoWhite} alt="GrowthPulse Academy" className="h-24 w-auto" />
                     </div>
                     <p className="text-gray-400 text-sm leading-relaxed">
                         Transforming careers through innovative, hands-on learning experiences.
@@ -32,10 +32,10 @@ const Footer = () => {
                 <div>
                     <h3 className="font-bold mb-6">Quick Links</h3>
                     <ul className="space-y-3 text-sm text-gray-400">
-                        <li><a href="#" className="hover:text-white transition-colors">Explore Programs</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="/#courses" className="hover:text-white transition-colors">Explore Programs</a></li>
+                        <li><a href="/#about" className="hover:text-white transition-colors">About Us</a></li>
+                        <li><Link to="/" className="hover:text-white transition-colors">Blog</Link></li>
+                        <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
                     </ul>
                 </div>
 
@@ -43,12 +43,13 @@ const Footer = () => {
                 <div>
                     <h3 className="font-bold mb-6">Programs</h3>
                     <ul className="space-y-3 text-sm text-gray-400">
-                        <li><a href="#" className="hover:text-white transition-colors">Full Stack .NET</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Full Stack Java</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Full Stack Python</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">MEAN Stack</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Cybersecurity</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Digital Marketing</a></li>
+                        <li><Link to="/course/full-stack-dotnet" className="hover:text-white transition-colors">Full Stack .NET</Link></li>
+                        <li><Link to="/course/full-stack-java" className="hover:text-white transition-colors">Full Stack Java</Link></li>
+                        <li><Link to="/course/full-stack-python" className="hover:text-white transition-colors">Full Stack Python</Link></li>
+                        <li><Link to="/mean-developer-training" className="hover:text-white transition-colors">MEAN Stack</Link></li>
+                        <li><Link to="/mern-developer-training" className="hover:text-white transition-colors">MERN Stack</Link></li>
+                        <li><Link to="/course/cybersecurity" className="hover:text-white transition-colors">Cybersecurity</Link></li>
+                        <li><Link to="/course/digital-marketing" className="hover:text-white transition-colors">Digital Marketing</Link></li>
                     </ul>
                 </div>
 

@@ -13,8 +13,10 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 
 import Contact from './pages/Contact';
+import CourseDetail from './components/CourseDetail';
 import MeanDeveloperTraining from './pages/MeanDeveloperTraining';
 import MernDeveloperTraining from './pages/MernDeveloperTraining';
+import CybersecurityTraining from './pages/CybersecurityTraining';
 
 function HomePage() {
   return (
@@ -40,8 +42,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/course/:courseId" element={<CourseDetail />} />
         <Route path="/mean-developer-training" element={<MeanDeveloperTraining />} />
         <Route path="/mern-developer-training" element={<MernDeveloperTraining />} />
+        <Route path="/course/cybersecurity" element={<CybersecurityTraining />} />
       </Routes>
     </BrowserRouter>
   );

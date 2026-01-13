@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { LuX } from 'react-icons/lu';
 import Navbar from '../components/Navbar';
 import LoginWarningModal from '../components/LoginWarningModal';
 
@@ -32,7 +33,14 @@ const Contact = () => {
                 onClose={() => setShowLoginWarning(false)}
             />
             <div className="container mx-auto px-6 md:px-12 lg:px-24 pt-32 pb-20">
-                <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-8 md:p-12">
+                <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-8 md:p-12 relative">
+                    <button
+                        onClick={() => navigate(-1)}
+                        className="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 transition-colors text-gray-500 hover:text-gray-700"
+                        aria-label="Close"
+                    >
+                        <LuX className="w-6 h-6" />
+                    </button>
                     <h1 className="text-3xl md:text-4xl font-bold text-gp-dark mb-6 text-center">Contact Us</h1>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">

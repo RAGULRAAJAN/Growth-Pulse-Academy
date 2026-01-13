@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import planet3d from '../assets/planet-3d.png';
 
 const faqs = [
     {
@@ -38,7 +39,24 @@ const FAQ = () => {
 
     return (
         <section className="py-20 px-6 md:px-12 lg:px-24 bg-[#F8F9FF]">
-            <h2 className="text-3xl md:text-4xl font-bold text-gp-dark mb-12">Frequently asked Questions</h2>
+            <div className="relative mb-12 text-center md:text-left">
+                <h2 className="text-3xl md:text-4xl font-bold text-gp-dark inline-block relative z-10">
+                    Frequently asked Questions
+                    {/* Decorative Arrow (Left) */}
+                    <div className="absolute -top-8 -left-12 md:-left-16 w-12 md:w-16 text-gp-purple transform -rotate-12 hidden md:block">
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M80 20 C 40 10, 10 40, 30 80" stroke="currentColor" strokeWidth="4" strokeLinecap="round" fill="none" />
+                            <path d="M20 70 L 30 80 L 45 70" stroke="currentColor" strokeWidth="4" strokeLinecap="round" fill="none" />
+                        </svg>
+                    </div>
+                    {/* Decorative Planet (Right) */}
+                    <img
+                        src={planet3d}
+                        alt="Planet"
+                        className="absolute -top-8 -right-16 md:-right-24 w-12 md:w-16 lg:w-20 animate-float hidden md:block"
+                    />
+                </h2>
+            </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Left Column */}
@@ -46,15 +64,15 @@ const FAQ = () => {
                     {faqs.slice(0, 3).map((faq) => (
                         <div
                             key={faq.id}
-                            className="bg-white rounded-xl p-6 shadow-sm cursor-pointer hover:shadow-md transition-all"
+                            className={`rounded-xl p-6 shadow-sm cursor-pointer hover:shadow-md transition-all ${openId === faq.id ? 'bg-blue-50 border border-blue-100' : 'bg-white'}`}
                             onClick={() => toggleFAQ(faq.id)}
                         >
                             <div className="flex justify-between items-center">
                                 <div className="flex gap-4 items-center">
-                                    <span className="text-gp-blue/50 font-bold bg-gp-blue/10 px-2 py-1 rounded text-sm">{faq.id}</span>
+                                    <span className={`font-bold px-2 py-1 rounded text-sm ${openId === faq.id ? 'text-blue-600 bg-blue-200' : 'text-gp-blue/50 bg-gp-blue/10'}`}>{faq.id}</span>
                                     <h3 className="font-semibold text-gp-dark">{faq.question}</h3>
                                 </div>
-                                <span className="text-gp-blue text-xl font-bold">{openId === faq.id ? '−' : '+'}</span>
+                                <span className="text-gp-blue text-xl font-bold">{openId === faq.id ? '×' : '+'}</span>
                             </div>
                             {openId === faq.id && (
                                 <p className="mt-4 text-gray-500 text-sm leading-relaxed animate-fadeIn">

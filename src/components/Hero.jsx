@@ -4,7 +4,7 @@ import robotHero from '../assets/header-image.png';
 
 const Hero = () => {
     return (
-        <section id="home" className="relative h-auto md:min-h-screen flex items-start md:items-center pt-32 pb-0 md:py-20 overflow-hidden bg-hero-gradient">
+        <section id="home" className="relative h-auto md:min-h-screen flex items-start md:items-center pt-32 pb-0 md:py-20 overflow-hidden bg-hero-gradient text-white">
             {/* Background Elements */}
             <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-gp-purple/20 to-transparent pointer-events-none" />
 
@@ -32,10 +32,10 @@ const Hero = () => {
                 </div>
 
                 {/* Right Content - Robot Image */}
-                <div className="relative z-10 flex justify-center lg:justify-end mt-32 md:mt-32 lg:mt-24">
+                <div className="relative z-30 flex justify-center lg:justify-end mt-32 md:mt-32 lg:mt-24">
                     <div className="relative w-full max-w-full sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] aspect-square">
                         <div className="absolute inset-0 bg-gradient-to-tr from-gp-blue to-gp-purple rounded-full blur-3xl opacity-30 animate-pulse"></div>
-                        <img src={robotHero} alt="AI Robot" className="relative w-full h-full object-contain drop-shadow-2xl scale-[1.8] sm:scale-[1.2] md:scale-[1.4] lg:scale-[1.6] xl:scale-[1.8]" />
+                        <img src={robotHero} alt="AI Robot" className="relative w-full h-full object-contain drop-shadow-2xl scale-[2.0] sm:scale-[1.4] md:scale-[1.6] lg:scale-[1.8] xl:scale-[2.0]" />
 
                         {/* Floating Chat Bubble */}
                         <motion.div
@@ -51,9 +51,9 @@ const Hero = () => {
             </div>
 
             {/* Bottom Curve */}
-            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
-                <svg className="relative block w-full h-[60px] md:h-[100px] lg:h-[150px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" preserveAspectRatio="none">
-                    <path d="M0,0 Q600,220 1200,0 L1200,200 L0,200 Z" className="fill-[#F0F9FF]"></path>
+            <div className="absolute bottom-0 left-0 w-full leading-none z-20">
+                <svg className="relative block w-full h-[60px] md:h-[100px] lg:h-[150px] overflow-visible" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" preserveAspectRatio="none">
+                    <path d="M0,-10 Q600,220 1200,-10 L1200,200 L0,200 Z" className="fill-[#F0F9FF]" stroke="#F0F9FF" strokeWidth="2" shapeRendering="geometricPrecision"></path>
                 </svg>
             </div>
         </section>

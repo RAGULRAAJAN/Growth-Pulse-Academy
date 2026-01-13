@@ -1,64 +1,70 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { LuMapPin, LuClock, LuAward } from 'react-icons/lu';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const MernDeveloperTraining = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div className="min-h-screen font-sans flex flex-col">
-            <Navbar />
+            <Navbar variant="light" showLogin={false} />
 
             {/* Hero Section */}
             <div className="relative bg-gradient-to-br from-[#6366F1] via-[#4F46E5] to-[#312E81] pt-32 pb-20 px-6 md:px-12 lg:px-24 text-white flex-grow overflow-hidden">
                 {/* Decorative background elements */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                    <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-purple-500/30 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-3xl"></div>
+                    <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-indigo-400/30 rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-3xl"></div>
                 </div>
                 <div className="max-w-7xl mx-auto relative z-10">
-                    <h1 className="text-4xl md:text-6xl font-normal mb-4 leading-tight">
+                    <h1 className="text-4xl md:text-7xl font-bold mb-4 leading-tight">
                         AI-Integrated MERN Developer<br />
                         Training Program
                     </h1>
 
-                    <p className="text-xl md:text-2xl mb-12 font-light opacity-90">
-                        MongoDB • Express.js • React • Node.js
-                    </p>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-16">
                         {/* Card 1: Attendance */}
-                        <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-colors">
-                            <p className="text-sm opacity-80 mb-1">Attendance</p>
-                            <p className="text-2xl font-medium">In-Person</p>
+                        <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 md:p-8 rounded-[1.5rem] flex flex-col gap-2 shadow-xl hover:bg-white/15 transition-all">
+                            <span className="text-3xl mb-2"><LuMapPin /></span>
+                            <span className="text-white/70 text-sm font-medium">Attendance</span>
+                            <span className="text-lg md:text-xl font-bold">In-Person</span>
                         </div>
 
                         {/* Card 2: Duration */}
-                        <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-colors">
-                            <p className="text-sm opacity-80 mb-1">Duration</p>
-                            <p className="text-2xl font-medium">350–400 Hours</p>
+                        <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 md:p-8 rounded-[1.5rem] flex flex-col gap-2 shadow-xl hover:bg-white/15 transition-all">
+                            <span className="text-3xl mb-2"><LuClock /></span>
+                            <span className="text-white/70 text-sm font-medium">Duration</span>
+                            <span className="text-lg md:text-xl font-bold">350–400 Hours</span>
                         </div>
 
                         {/* Card 3: Outcome 1 */}
-                        <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-colors">
-                            <p className="text-sm opacity-80 mb-1">Outcome 1</p>
-                            <p className="text-2xl font-medium">Internship</p>
+                        <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 md:p-8 rounded-[1.5rem] flex flex-col gap-2 shadow-xl hover:bg-white/15 transition-all">
+                            <span className="text-3xl mb-2"><LuAward /></span>
+                            <span className="text-white/70 text-sm font-medium">Outcome 1</span>
+                            <span className="text-lg md:text-xl font-bold">Internship</span>
                         </div>
 
                         {/* Card 4: Outcome 2 */}
-                        <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-colors">
-                            <p className="text-sm opacity-80 mb-1">Outcome 2</p>
-                            <p className="text-2xl font-medium">Certificate</p>
+                        <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 md:p-8 rounded-[1.5rem] flex flex-col gap-2 shadow-xl hover:bg-white/15 transition-all">
+                            <span className="text-3xl mb-2"><LuAward /></span>
+                            <span className="text-white/70 text-sm font-medium">Outcome 2</span>
+                            <span className="text-lg md:text-xl font-bold">Certificate</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* Introduction Section */}
-            <div className="py-20 px-6 md:px-12 lg:px-24 bg-[#F0F9FF] text-center">
-                <div className="max-w-4xl mx-auto">
+            <div className="py-20 px-6 md:px-12 lg:px-24 bg-[#F0F9FF] text-left">
+                <div className="max-w-4xl">
                     <h2 className="text-3xl md:text-5xl font-medium text-gp-dark mb-8 leading-tight">
                         Master the MERN Stack with Cutting-Edge AI Integration
                     </h2>
-                    <p className="text-gray-600 text-lg leading-relaxed text-justify md:text-center">
+                    <p className="text-gray-600 text-lg leading-relaxed text-left">
                         The AI-Integrated MERN Developer Training Program represents a detailed 350-400-hour journey that aims at preparing students with essential skills in modern full-stack web development using the MERN stack: MongoDB, Express.js, React, and Node.js, enhanced with AI integration. It begins with basic JavaScript and SDLC concepts and gradually moves to server-side development with Node.js and Express.js, database integration with MongoDB and Mongoose ORM, and frontend development using React with API integration.
                     </p>
                 </div>
@@ -66,7 +72,7 @@ const MernDeveloperTraining = () => {
 
             {/* Core Modules Section */}
             <div className="py-20 px-6 md:px-12 lg:px-24 bg-white">
-                <div className="max-w-5xl mx-auto">
+                <div className="max-w-5xl">
                     <div className="flex items-center gap-4 mb-12">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 text-[#4F46E5]">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
@@ -142,15 +148,15 @@ const MernDeveloperTraining = () => {
             </div>
 
             {/* CTA Section */}
-            <div className="py-24 px-6 md:px-12 lg:px-24 bg-gradient-to-r from-[#4F46E5] to-[#3730A3] text-center text-white">
+            <div className="py-24 px-6 md:px-12 lg:px-24 bg-[#3730A3] text-center text-white">
                 <h2 className="text-3xl md:text-5xl font-medium mb-12">
                     Ready to launch your career with the power of MERN and AI?
                 </h2>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                    <button className="px-8 py-3 bg-white text-[#4F46E5] rounded-md font-semibold hover:bg-gray-100 transition-colors flex items-center gap-2">
+                    <Link to="/contact" className="px-8 py-3 bg-white text-[#4F46E5] rounded-sm font-semibold hover:bg-gray-100 transition-colors flex items-center gap-2">
                         Enroll Now <span>→</span>
-                    </button>
-                    <button className="px-8 py-3 bg-transparent border border-white text-white rounded-md font-semibold hover:bg-white/10 transition-colors">
+                    </Link>
+                    <button className="px-8 py-3 bg-transparent border border-white text-white rounded-sm font-semibold hover:bg-white/10 transition-colors">
                         Reserve Your Spot
                     </button>
                 </div>
