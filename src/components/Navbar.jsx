@@ -84,6 +84,7 @@ const Navbar = ({ variant = 'transparent', showLogin = true }) => {
                     </div>
                 </div>
                 <a href="#blog" className={linkClasses}>Blog</a>
+                <Link to="/contact" className={linkClasses}>Contact</Link>
             </div>
 
             {/* Desktop CTA */}

@@ -14,6 +14,7 @@ import Register from './pages/Register';
 
 import Contact from './pages/Contact';
 import CourseDetail from './components/CourseDetail';
+import MeanDeveloperTraining from './pages/MeanDeveloperTraining';
 
 function HomePage() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/course/:courseId" element={<CourseDetail />} />
+        <Route path="/mean-developer-training" element={<MeanDeveloperTraining />} />
       </Routes>
     </BrowserRouter>
   );
