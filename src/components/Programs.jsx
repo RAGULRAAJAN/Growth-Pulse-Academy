@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import iconFullStack from '../assets/icon-fullstack.png';
 import iconMarketing from '../assets/icon-marketing.png';
 import iconSecurity from '../assets/icon-security.png';
@@ -11,10 +12,15 @@ const programs = [
         features: ['Real-world projects', 'AI Integration', 'Industry mentorship'],
         image: iconFullStack,
         color: 'from-indigo-500 to-purple-600',
-        subPrograms: ['Full Stack .NET', 'Full Stack Java', 'Full Stack Python']
+        subPrograms: [
+            { name: 'Full Stack .NET', id: 'full-stack-dotnet' },
+            { name: 'Full Stack Java', id: 'full-stack-java' },
+            { name: 'Full Stack Python', id: 'full-stack-python' }
+        ]
     },
     {
         title: 'Digital Marketing',
+        id: 'digital-marketing',
         description: 'Learn SEO, social media marketing, content strategy, and analytics to drive business growth.',
         features: ['Campaign management', 'Analytics tools', 'Content creation'],
         image: iconMarketing,
@@ -33,11 +39,16 @@ const programs = [
         features: ['Machine learning', 'AI libraries', 'Smart applications'],
         image: iconAI,
         color: 'from-violet-500 to-fuchsia-600',
-        subPrograms: ['MERN', 'MEAN']
+        subPrograms: [
+            { name: 'MERN', id: 'mern' },
+            { name: 'MEAN', id: 'mean' }
+        ]
     }
 ];
 
 const Programs = () => {
+    const navigate = useNavigate();
+
     return (
         <section id="courses" className="py-24 px-6 md:px-12 lg:px-24 bg-[#F0F9FF]">
             <div className="mb-16 text-center md:text-left text-gp-dark">
@@ -69,7 +80,10 @@ const Programs = () => {
                                 </ul>
 
                                 {!program.subPrograms && (
-                                    <button className="mt-auto w-full py-4 rounded-full bg-gradient-to-r from-[#7148E2] to-[#407CED] text-white font-bold text-sm shadow-md hover:brightness-110 hover:scale-[1.02] transition-all active:scale-95">
+                                    <button
+                                        onClick={() => navigate(`/course/${program.id}`)}
+                                        className="mt-auto w-full py-4 rounded-full bg-gradient-to-r from-[#7148E2] to-[#407CED] text-white font-bold text-sm shadow-md hover:brightness-110 hover:scale-[1.02] transition-all active:scale-95"
+                                    >
                                         Learn More
                                     </button>
                                 )}
@@ -80,8 +94,12 @@ const Programs = () => {
                         {program.subPrograms && (
                             <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[90%] bg-white border border-gray-400 rounded-[2rem] overflow-hidden shadow-2xl z-10 p-1">
                                 {program.subPrograms.map((sub, idx) => (
-                                    <div key={idx} className="px-6 py-3 text-base font-bold text-gray-800 hover:bg-gp-purple/5 cursor-pointer transition-all flex items-center justify-between group/item rounded-[1.5rem]">
-                                        <span>{sub}</span>
+                                    <div
+                                        key={idx}
+                                        onClick={() => navigate(`/course/${sub.id}`)}
+                                        className="px-6 py-3 text-base font-bold text-gray-800 hover:bg-gp-purple/5 cursor-pointer transition-all flex items-center justify-between group/item rounded-[1.5rem]"
+                                    >
+                                        <span>{sub.name}</span>
                                         <span className="opacity-0 group-hover/item:opacity-100 transition-opacity text-gp-purple font-black">→</span>
                                     </div>
                                 ))}

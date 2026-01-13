@@ -3,7 +3,7 @@ import { FaInstagram, FaLinkedin, FaFacebook, FaYoutube } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import logoWhite from '../assets/logo-white.png';
 
-const Footer = () => {
+const Footer = ({ themeColor = '#4227F5' }) => {
     return (
         <footer id="contact" className="bg-gp-dark text-white pt-20 pb-10 px-6 md:px-12 lg:px-24 relative overflow-hidden">
             {/* CTA Section */}
@@ -12,7 +12,7 @@ const Footer = () => {
                 <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
                     Join hundreds of successful graduates who have launched their tech careers with Growthpulse Academy.
                 </p>
-                <Link to="/contact" className="btn-primary px-8 py-3 rounded-md inline-block">
+                <Link to="/contact" className="bg-white px-10 py-3.5 rounded-full inline-block font-black text-lg shadow-xl hover:bg-gray-100 hover:scale-105 transition-all" style={{ color: '#0066FF' }}>
                     Apply Now
                 </Link>
             </div>

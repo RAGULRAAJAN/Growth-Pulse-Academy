@@ -13,13 +13,13 @@ export default {
         'gp-text': '#F8FAFC',
         'gp-muted': '#94A3B8',
       },
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
-      },
       backgroundImage: {
         'hero-gradient': 'linear-gradient(to right bottom, #1e1b4b, #312e81, #4c1d95)',
       }
+    },
+    fontFamily: {
+      sans: ['Outfit', 'sans-serif'],
+      serif: ['Playfair Display', 'serif'],
     },
   },
   plugins: [],
