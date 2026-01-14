@@ -6,6 +6,7 @@ import WorldClassTraining from './components/WorldClassTraining';
 import WhyChooseUs from './components/WhyChooseUs';
 import Programs from './components/Programs';
 import TargetAudience from './components/TargetAudience';
+import Reviews from './components/Reviews';
 import CareerGuidance from './components/CareerGuidance';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
@@ -27,6 +28,7 @@ function HomePage() {
       <WhyChooseUs />
       <Programs />
       <TargetAudience />
+      <Reviews />
       <CareerGuidance />
       <FAQ />
       <Footer />
